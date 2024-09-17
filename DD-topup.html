@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Digital Deposit Termination</title>
+    <title>Digital Deposit Top Up</title>
     <style>
       * {
         margin: 0;
@@ -31,20 +31,20 @@
         margin-bottom: 20px;
       }
 
-      .pdf-content .termination-table {
+      .pdf-content .topup-table {
         border-collapse: collapse;
         width: 100%;
         font-size: 10pt;
         margin-bottom: 48px;
       }
 
-      .pdf-content .termination-table td {
+      .pdf-content .topup-table td {
         width: 50%;
         border: 1px solid #000;
         padding: 4px;
       }
 
-      .pdf-content .termination-table td:first-child {
+      .pdf-content .topup-table td:first-child {
         font-weight: bold;
       }
 
@@ -66,10 +66,8 @@
         />
       </div>
 
-      <h1 class="title">
-        DEPOZİT MÜQAVİLƏSİNİN VAXTINDAN ƏVVƏL LƏĞV OLUNMASI ÜÇÜN ƏRİZƏ
-      </h1>
-      <table class="termination-table">
+      <h1 class="title">DEPOZİTƏ ƏLAVƏ VƏSAİTİN YERLƏŞTİRİLMƏSİ ÜÇÜN ƏRİZƏ</h1>
+      <table class="topup-table">
         <tr>
           <td>Tarix (gün/ay/il)</td>
           <td>{{17.09.2024}}</td>
@@ -86,8 +84,8 @@
         </tr>
         <tr>
           <td colspan="2" style="font-weight: normal">
-            Xahiş edirəm, mənə aşağıdakı şərtlərlə mövcud depozit xidmətinin
-            vaxtından əvvəl ləğv olunmasını təmin edəsiniz.
+            Xahiş edirəm, mənim mövcud depozitimə aşağıdakı şərtlərlə əlavə
+            vəsaitin yerləşdirilməsini təmin edəsiniz.
           </td>
         </tr>
         <tr>
@@ -95,7 +93,9 @@
           <td>{{12345678}}</td>
         </tr>
         <tr>
-          <td>Depozit vəsaitinin köçürüləcəyi hesab</td>
+          <td>
+            Əlavə vəsaitin tutulacağı və depozit hesabına köçürüləcəyi hesab
+          </td>
           <td>{{987654321}}</td>
         </tr>
         <tr>
@@ -103,16 +103,24 @@
           <td>{{01.01.2025}}</td>
         </tr>
         <tr>
-          <td>Depozitin məbləği (rəqəm ilə)</td>
+          <td>Əlavə vəsaitin məbləği (rəqəm ilə)</td>
           <td>{{5000}}</td>
         </tr>
         <tr>
-          <td>Depozitin məbləği (yazı ilə)</td>
+          <td>Əlavə vəsaitin məbləği (yazı ilə)</td>
           <td>{{Bes min}}</td>
         </tr>
         <tr>
-          <td>Depozitin valyutası</td>
+          <td>Əlavə vəsaitin valyutası</td>
           <td>{{AZN}}</td>
+        </tr>
+        <tr>
+          <td>Əlavə vəsaitin yerləşdirilmə tarixi</td>
+          <td>{{18.09.2024}}</td>
+        </tr>
+        <tr>
+          <td>Avtomatik uzadılması</td>
+          <td>{{Bəli}}</td>
         </tr>
       </table>
       <p>
