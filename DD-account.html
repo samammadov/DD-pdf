@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Digital Deposit Termination</title>
+    <title>Digital Deposit Account</title>
     <style>
       * {
         margin: 0;
@@ -21,6 +21,8 @@
         width: 210mm;
         height: 297mm;
         padding: 20mm;
+        page-break-after: always;
+        position: relative;
       }
 
       .pdf-content .logo {
@@ -33,21 +35,38 @@
         margin-bottom: 20px;
       }
 
-      .pdf-content .termination-table {
+      .pdf-content .account-table {
         border-collapse: collapse;
         width: 100%;
         font-size: 10pt;
-        margin-bottom: 48px;
       }
 
-      .pdf-content .termination-table td {
+      .pdf-content .account-table td {
         width: 50%;
         border: 1px solid #000;
         padding: 4px;
       }
 
-      .pdf-content .termination-table td:first-child {
+      .pdf-content .account-table td:first-child {
         font-weight: bold;
+      }
+
+      .pdf-content .note {
+        margin-top: 24px;
+        font-size: 10pt;
+      }
+
+      .pdf-content .contact {
+        position: absolute;
+        bottom: 20mm;
+        left: 20mm;
+        right: 20mm;
+        display: flex;
+        flex-direction: column;
+        row-gap: 4px;
+        font-size: 10pt;
+        opacity: 0.6;
+        font-style: italic;
       }
 
       @media print {
@@ -67,17 +86,20 @@
           alt="Logo"
         />
       </div>
-
       <h1 class="title">
-        DEPOZİT MÜQAVİLƏSİNİN VAXTINDAN ƏVVƏL LƏĞV OLUNMASI ÜÇÜN ƏRİZƏ
+        BANK HESABININ AÇILMASI VƏ DEPOZİT YERLƏŞTİRİLMƏSİ ÜÇÜN ƏRİZƏ
       </h1>
-      <table class="termination-table">
+      <table class="account-table">
         <tr>
           <td>Tarix (gün/ay/il)</td>
           <td>{{17.09.2024}}</td>
         </tr>
         <tr>
-          <td colspan="2" style="font-weight: normal">
+          <td>No</td>
+          <td>{{817236123}}</td>
+        </tr>
+        <tr>
+          <td colspan="2" style="font-weight: normal; text-align: center">
             {{GTC-02109IB/2017 nömrəli 2020-12-21}} tarixli Ümumi Şərtlər
             Toplusuna əlavə
           </td>
@@ -87,40 +109,99 @@
           <td>{{NAMİQ MURTUZ OĞLU MƏMMƏDOV}} {{11223344}}</td>
         </tr>
         <tr>
-          <td colspan="2" style="font-weight: normal">
-            Xahiş edirəm, mənə aşağıdakı şərtlərlə mövcud depozit xidmətinin
-            vaxtından əvvəl ləğv olunmasını təmin edəsiniz.
+          <td colspan="2" style="font-weight: normal; text-align: center">
+            Xahiş edirəm, mənə aşağıdakı şərtlərlə hesab açasınız və yeni
+            depozit yerləşdirəsiniz:
           </td>
         </tr>
         <tr>
-          <td>Depozit xidməti üzrə ərizənin nömrəsi</td>
-          <td>{{12345678}}</td>
+          <td>Hesabın növü</td>
+          <td>{{Cari hesab}}</td>
         </tr>
         <tr>
-          <td>Depozit vəsaitinin köçürüləcəyi hesab</td>
-          <td>{{987654321}}</td>
+          <td>Hesabın valyutası</td>
+          <td>{{AZN}}</td>
+        </tr>
+        <tr>
+          <td>HESAB ÜZRƏ ÇIXARIŞLARIN TƏQDİM EDİLMƏSİ</td>
+          <td>
+            Müştərinin sorğusu əsasında Mobil əlavədən Müştərinin qeydiyyat
+            ərizəsində təqdim etdiyi elektron poçt ünvanına göndərilməklə
+          </td>
+        </tr>
+        <tr>
+          <td>Depozitin növü</td>
+          <td>{{Müddətli}}</td>
+        </tr>
+        <tr>
+          <td>
+            Depozit qoyulacaq məbləğin tutulacağı və depozit hesabına
+            köçürüləcəyi hesab
+          </td>
+          <td>{{978162312}}</td>
+        </tr>
+        <tr>
+          <td>Depozitin başlama tarixi (gün/ay/il)</td>
+          <td>{{01.01.2024}}</td>
         </tr>
         <tr>
           <td>Depozitin bitmə tarixi (gün/ay/il)</td>
-          <td>{{01.01.2025}}</td>
+          <td>{{30.12.2025}}</td>
+        </tr>
+        <tr>
+          <td>Depozitin müddəti (ay ilə)</td>
+          <td>{{12}}</td>
+        </tr>
+        <tr>
+          <td>Faiz dərəcəsi (%)</td>
+          <td>{{11}}</td>
         </tr>
         <tr>
           <td>Depozitin məbləği (rəqəm ilə)</td>
-          <td>{{5000}}</td>
+          <td>{{20.000}}</td>
         </tr>
         <tr>
           <td>Depozitin məbləği (yazı ilə)</td>
-          <td>{{Bes min}}</td>
+          <td>{{İyirmi min}}</td>
         </tr>
         <tr>
           <td>Depozitin valyutası</td>
           <td>{{AZN}}</td>
         </tr>
+        <tr>
+          <td colspan="2">
+            Faiz və əsas məbləğ depozit yerləştirilməsi üçün açılan cari hesaba
+            köçürüləcəkdir.
+          </td>
+        </tr>
       </table>
-      <p>
-        <b>Qeyd:</b>
-        Ərizə imzalandığı tarixdən qüvvəyə minir. 
+      <p class="note">
+        <b>Müştəri təsdiqi:</b>
+        Bankın qüvvədə olan tarifləri ilə tanış oldum. Hazırkı ərizəni
+        imzalayaraq burada qeyd olunan xidmətlərin göstərilməsini Banka sifariş
+        etdiyimi təsdiqləyirəm. Bank tərəfindən müəyyən edilən xidmətlərin
+        istifadəsinə dair şərtlərə riayət olunmasına görə şəxsən məsuliyyət
+        daşıyıram. Mən aşağıda imza etməklə eyni zamanda razılaşıram ki, bu
+        hesaba özüm və ya başqa şəxs tərəfindən köçürmə yolu ilə mədaxil
+        olunacaq pul vəsaiti, həmin hesabın valyutasından fərqli valyutada
+        olduqda, ödəniş tapşırığının icra edildiyi günə olan Bankın məzənnəsi və
+        Bankın tarifinə uyğun olaraq Bank tərəfindən mübadilə olunaraq hesaba
+        mədaxil ediləcək. Həmçinin faiz və əsas məbləğ depozit yerləşdirilməsi
+        üçün açılan cari hesaba köçürüləcəkdir. 
       </p>
+      <p class="note"><b>Qeyd:</b>Ərizə imzalandığı tarixdən qüvvəyə minir. </p>
+      <div class="contact">
+        <p>
+          PAŞA BANK ASC-nin əlaqə telefonu: *9123, (012) 496 50 00,(012) 496 51
+          00
+        </p>
+        <p>AR Mərkəzi Bankının qaynar xətti: (012) 966</p>
+        <p>AR Mərkəzi Bankının əlaqə nömrəsi: +994124935058</p>
+      </div>
+    </div>
+
+    <div class="pdf-content">
+      <h1>Next</h1>
     </div>
   </body>
 </html>
