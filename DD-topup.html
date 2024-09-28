@@ -15,12 +15,13 @@
         font-family: Arial, sans-serif;
         letter-spacing: 0.4px;
         line-height: 1.25;
+        font-size: 10pt;
       }
 
       .pdf-content {
         width: 210mm;
         height: 297mm;
-        padding: 20mm;
+        padding: 10mm;
       }
 
       .pdf-content .logo {
@@ -29,15 +30,13 @@
 
       .pdf-content .title {
         text-align: center;
-        font-size: 10pt;
+        font-size: 12pt;
         margin-bottom: 20px;
       }
 
       .pdf-content .topup-table {
         border-collapse: collapse;
         width: 100%;
-        font-size: 10pt;
-        margin-bottom: 48px;
       }
 
       .pdf-content .topup-table td {
@@ -48,6 +47,22 @@
 
       .pdf-content .topup-table td:first-child {
         font-weight: bold;
+      }
+
+      .pdf-content .note {
+        margin-top: 12px;
+      }
+
+      .pdf-content .contact {
+        position: absolute;
+        bottom: 10mm;
+        left: 10mm;
+        right: 10mm;
+        display: flex;
+        flex-direction: column;
+        row-gap: 4px;
+        opacity: 0.6;
+        font-style: italic;
       }
 
       @media print {
@@ -96,7 +111,7 @@
         </tr>
         <tr>
           <td>
-            Əlavə vəsaitin tutulacağı və depozit hesabına köçürüləcəyi hesab
+            Depozit məbləğinin artırılmağı üçün Əlavə vəsaitin tutulacağı hesab
           </td>
           <td>{{987654321}}</td>
         </tr>
@@ -121,14 +136,22 @@
           <td>{{18.09.2024}}</td>
         </tr>
         <tr>
-          <td>Avtomatik uzadılması</td>
+          <td>Depozit avtomatik uzadılsın</td>
           <td>{{Bəli}}</td>
         </tr>
       </table>
-      <p>
+      <p class="note">
         <b>Qeyd:</b>
         Ərizə imzalandığı tarixdən qüvvəyə minir. 
       </p>
+      <div class="contact">
+        <p>
+          PAŞA BANK ASC-nin əlaqə telefonu: *9123, (012) 496 50 00,(012) 496 51
+          00
+        </p>
+        <p>AR Mərkəzi Bankının qaynar xətti: (012) 966</p>
+        <p>AR Mərkəzi Bankının əlaqə nömrəsi: +994124935058</p>
+      </div>
     </div>
   </body>
 </html>
