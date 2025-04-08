@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xidmətin göstərilməsi üçün ƏRİZƏ</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      ul li {
+        line-height: 20px;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        letter-spacing: 0.4px;
+        line-height: 1.25;
+        font-size: 10pt;
+      }
+
+      .pdf-content {
+        width: 210mm;
+        height: 297mm;
+        padding: 10mm;
+        page-break-after: always;
+        position: relative;
+      }
+
+      .pdf-content .title {
+        text-align: center;
+        font-size: 12pt;
+        margin-bottom: 20px;
+      }
+
+      .pdf-content .customer-table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      .pdf-content .customer-table td {
+        width: 50%;
+        border: 1px solid #000;
+        padding: 4px;
+        height: 24px;
+      }
+
+      .pdf-content .customer-table td input[type="checkbox"] + label {
+        margin-left: 4px;
+      }
+
+      .pdf-content .footer {
+        position: absolute;
+        bottom: 10mm;
+        left: 10mm;
+        right: 10mm;
+        display: flex;
+        flex-direction: column;
+        row-gap: 4px;
+        opacity: 0.6;
+        font-style: italic;
+      }
+
+      .pdf-content .clauses {
+        list-style-position: inside;
+        font-size: 11pt;
+      }
+
+      .pdf-content .clauses li {
+        margin-bottom: 10px;
+      }
+
+      @media print {
+        @page {
+          size: A4;
+          margin: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pdf-content">
+      <h1 class="title">
+        Xidmətin göstərilməsi üçün
+        <br />
+        ƏRİZƏ
+      </h1>
+      <table class="customer-table">
+        <tr>
+          <td>Tarix</td>
+          <td>{{01.01.2020}}</td>
+        </tr>
+        <tr>
+          <td>Müştərinin adı, soyadı, atasınn adı</td>
+          <td>{{Paşazadə Səbinə Rasim qızı}}</td>
+        </tr>
+        <tr>
+          <td>Bankın adı</td>
+          <td>PAŞA Bank ASC</td>
+        </tr>
+        <tr>
+          <td>Ümumi şərtlər toplusunun nömrəsi və tarixi</td>
+          <td>{{GTC-02109IB/2017}} nömrəli {{2020-12-21}} tarixli</td>
+        </tr>
+        <tr>
+          <td>Doğulduğu tarix və yer</td>
+          <td>{{ 04.06.2020 Azərbaycan, Bakı şəhəri }}</td>
+        </tr>
+        <tr>
+          <td>Vətəndaş olduğu ölkə (ölkələr)</td>
+          <td>{{Azərbaycan}}</td>
+        </tr>
+        <tr>
+          <td>Qeydiyyat ünvanı (İndeks,ölkə, şəhər, ünvan)</td>
+          <td>{{Bakı şəh., Nizami rayonu, Qara Qarayev pr., ev 16, m 5}}</td>
+        </tr>
+        <tr>
+          <td>Faktiki (poçt) ünvanı (İndeks,ölkə, şəhər, ünvan)</td>
+          <td>{{Bakı şəh., Nizami rayonu, Qara Qarayev pr., ev 16, m 5}}</td>
+        </tr>
+        <tr>
+          <td colspan="2">1. Müştəriyə aid əlavə məlumat:</td>
+        </tr>
+        <tr>
+          <td>1.1 Cinayət məsuliyyətinə cəlb edilmisiniz?</td>
+          <td>
+            <input type="checkbox" checked />
+            <label>Bəli</label>
+            <input type="checkbox" />
+            <label>Xeyr</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            1.2 Siyasi nüfuzlu şəxsiniz? <br />
+            * Zəhmət olmasa Siyasi nüfuzlu şəxs (və ya yaxın qohum) olduğu halda
+            PEP və SOW formalarını doldurun
+          </td>
+          <td style="line-height: 22px">
+            <input type="checkbox" checked /><label>Bəli</label>
+            <input type="checkbox" /><label>Xeyr</label>
+            <input type="checkbox" />
+            <label>Siyasi nüfuzlu şəxsin yaxın qohumu</label>
+            <br />
+            <input type="checkbox" /><label
+              >Siyasi nüfuzlu şəxsin yaxın münasibətdə olduğu şəxs
+              tərəfdaşı</label
+            >
+          </td>
+        </tr>
+        <tr>
+          <td>1.3 Bankla işgüzar münasibətlərin yaradılmasının məqsədi:</td>
+          <td>Əməkhaqqı kartı</td>
+        </tr>
+        <tr>
+          <td>1.4 İşlədiyiniz təşkilatın adı:</td>
+          <td>{{PAŞA Bank}}</td>
+        </tr>
+        <tr>
+          <td>1.5 Vəzifə/fəalliyət istiqaməti:</td>
+          <td>{{Mütəxəssis}}</td>
+        </tr>
+        <tr>
+          <td>1.6 Gəlir mənbəyi:</td>
+          <td>Əməkhaqqı</td>
+        </tr>
+        <tr>
+          <td>
+            2. Məxfi şifrə(min 5 max 8 rəqəm):
+            <br />
+            *Telefon vasitəsilə hesab üzrə məlumatın müraciət edən şəxsə
+            verilməsi üçün qeyd edilir
+          </td>
+          <td>{{DDMMYYYY}}</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <p>
+              3. Bu Ərizədə izahı verilməyən anlayışlar Müqavilədə ifadə
+              olunduğu mənanı daşıyır. Bu Ərizə ilə Müqavilə arasında hər hansı
+              ziddiyyət və ya uyğunsuzluq aşkar olunduğu təqdirdə isə bu
+              Ərizənin müddəalarına üstünlük verilir.
+            </p>
+            <p>
+              4. Bu Ərizə imzalandığı gündən qüvvəyə minir. Ərizə əsasında qəbul
+              edilən Müqaviləyə xitam verilməsi Müqavilə şərtləri ilə
+              tənzimlənir.
+            </p>
+            <p>
+              5. Müştəri, bu ərizəni (bundan sonra “Ərizə” adlandırılacaq)
+              imzalamaqla, Bank xidmətlərinin göstərilməsinə dair ümumi şərtlər
+              toplusunun Bankın rəsmi internet səhifəsində
+              https://www.pashabank.az/gsa_addendum/lang.az/ link üzrə
+              yerləşdirilən 14.09.2023-ci il tarixli 1.1.6 №-li versiyasının
+              (bundan sonra “Müqavilə” adlandırılacaq) şərtlərini qəbul etdiyini
+              və öz öhdəliyinə düşən şərtlərə riayət olunmasına görə məsuliyyət
+              daşıdığını qəbul edir.
+            </p>
+            <p>
+              6. Müştəri bu Ərizə imzalanan anda fotoşəklinin çəkilməsinə/
+              video-görüntü qeydə alınmasına və Bankda saxlanmasına razılıq
+              verir.
+            </p>
+            <p>
+              7. Müştəri təsdiq edir ki, onun {{sabina040693@gmail.com}}
+              elektron poçt ünvanı ilə və {{509999999}} nömrə ilə, Bankın
+              müvafiq elektron kanalı/platforması ilə təsdiqi imzanın analoqu
+              sayılacaq və Banka edilən
+            </p>
+          </td>
+        </tr>
+      </table>
+      <div class="footer">
+        <p>
+          [1] Bu Ərizə “Fərdi Müştərilərin maliyyələşdirilməsi” Ərizəsini,
+          Müştəri qeydiyyat ərizəsini, fiziki şəxsin imza nümunəsini də ehtiva
+          edir
+        </p>
+      </div>
+    </div>
+
+    <div class="pdf-content">
+      <div style="border: 1px solid black">
+        <p style="border-bottom: 1px solid black; padding: 10px">
+          müraciətlər imzalı sənədə bərabər tutulacaq, bu səbəbdən əlaqə
+          vasitələrində dəyişiklik olduqda dərhal Bank məlumatlandırmalıdır.
+        </p>
+        <div style="padding: 10px">
+          <h3>BANKIN QEYDLƏRİ</h3>
+          <ul>
+            <li>Müştərinin eyniləşdirmə kodu: {{00000001}}</li>
+            <li>Məhsulun adı: Əməkhaqqı kartı</li>
+            <li>Kartın valyutası: {{AZN}}</li>
+            <li>Kartın müddəti: {{3 il}}</li>
+            <li>Kart hesabının nömrəsi: {{AZ22PAHA25270AZNBC0100000001}}</li>
+            <li>
+              SMS məlumatlandırma xidməti: <input type="checkbox" />
+              <label>Bəli</label>
+              <input type="checkbox" checked />
+              <label>Xeyr</label>
+            </li>
+            <li>
+              3D Secure xidməti: <input type="checkbox" checked />
+              <label>Bəli</label>
+              <input type="checkbox" />
+              <label>Xeyr</label>
+            </li>
+            <li>
+              Xidmət növü: <input type="checkbox" />
+              <label>Yeni kartın verilməsi</label>
+              <input type="checkbox" />
+              <label>Kartın dəyişdirilməsi</label>
+              <input type="checkbox" />
+              <label>Vaxtı bitmiş kartın yenilənməsi</label>
+            </li>
+          </ul>
+          <p>Kartdan istifadə üzrə məhdudiyyətlər</p>
+          <p>
+            Təhlükəsizliyin təmin edilməsi məqsədilə yüksək risk qrupuna aid
+            regionlarda (ölkələrin siyahısı www.pashabank.az səhifəsində
+            yerləşdirilmişdir və daim yenilənir) ödəniş kartlarından istifadə
+            məhdudlaşdırılır. Qeyd olunan məhdudiyyətin aradan qaldırılması ilə
+            bağlı göstəriş verməklə, ödəniş kart üzrə keçən bütün əməliyyatlar
+            üzrə cavabdehliyi öz üzərinizə götürmüş olursunuz. Bunları nəzərə
+            alaraq, xahiş olunur müvafiq seçim edəsiniz.
+          </p>
+          <p>
+            Sifariş olunan kartda nağd və nağdsız əməliyyatlar üzrə
+            məhdudiyyətlər aşağıdaki kimi olsun:
+          </p>
+          <br />
+          <ul>
+            <li>
+              <input type="checkbox" checked />
+              Bütün yüksək risk qrupuna aid regionlarda əməliyyatlara
+              məhdudiyyət qoyulsun
+            </li>
+            <li>
+              <input type="checkbox" />
+              Bütün yüksək risk qrupuna aid regionlarda əməliyyatlara
+              məhdudiyyət aradan qaldırılsın
+            </li>
+            <li>
+              <input type="checkbox" />
+              Yalnız aşağıda qeyd olunan ölkədə (ölkələrdə) əməliyyatlara
+              məhdudiyyət aradan qaldırılsın
+            </li>
+          </ul>
+          <br />
+          <table class="customer-table">
+            <thead>
+              <tr>
+                <td>Ölkə</td>
+                <td>Dövr</td>
+              </tr>
+            </thead>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+          <br />
+          <p>
+            Bankın qüvvədə olan tarifləri və qaydaları ilə tanış oldum. Hazırkı
+            ərizəni imzalayaraq burada qeyd olunan xidmətlərin göstərilməsini
+            Banka sifariş etdiyimi təsdiqləyirəm və kart hazır olduqdan sonra 3
+            ay ərzində kartı təhvil almayacağım halda kartın ləğv ediləcəyini
+            qəbul edirəm. Bank tərəfindən müəyyən edilən xidmətlərin
+            istifadəsinə dair şərtlərə riayət olunmasına görə şəxsən məsuliyyət
+            daşıyıram.
+          </p>
+          <br />
+          <p>
+            Mən aşağıda imza etməklə eyni zamanda qəbul edir və razılaşıram ki,
+            bu Ərizədə qeyd olunan kart hesabı üzrə həyata keçirilən əməliyyatın
+            valyutası həmin hesabın valyutasından fərqli valyutada olduqda,
+            əməliyyatın icra edildiyi günə olan Azərbaycan Respublikası Mərkəzi
+            Bankının rəsmi valyuta məzənnəsinə əsasən həyata keçirisin. Həmçinin
+            mənə məlumdur ki, Beynəlxalq Ödəniş Sistemləri tərəfindən fərqli
+            konvertasiya məzənnəsi tətbiq edilə bilər.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p></p>
+        [2] Bu Ərizə “Fərdi Müştərilərin maliyyələşdirilməsi” Ərizəsini, Müştəri
+        qeydiyyat ərizəsini, fiziki şəxsin imza nümunəsini də ehtiva edir
+      </div>
+    </div>
+  </body>
+</html>
